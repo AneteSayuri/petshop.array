@@ -1,28 +1,34 @@
-package br.com.ada.petshop.modelo;
-
-import java.util.Objects;
+package modelo;
 
 public class Dono {
 
-    private int id;
-    private String nome;
+    private int idDono;
+    private String nomeDono;
     private String cpf;
     private String email;
-
-    // composição, um dono é composto por um endereço
     private Endereco endereco;
 
-    public Dono(String nome, Endereco endereco) {
-        this.nome = nome;
+    public Dono(String nomeDono, Endereco endereco) {
+        this.nomeDono = nomeDono;
         this.endereco = endereco;
     }
 
-    public String getNome() {
-        return nome;
+    public int getIdDono() {
+        return idDono;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setIdDono(int idDono) {
+        if (this.idDono == 0) {
+            this.idDono = idDono;
+        }
+    }
+
+    public String getNomeDono() {
+        return nomeDono;
+    }
+
+    public void setNomeDono(String nomeDono) {
+        this.nomeDono = nomeDono;
     }
 
     public String getCpf() {
@@ -49,24 +55,14 @@ public class Dono {
         this.endereco = endereco;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        if (this.id == 0){
-            this.id = id;
-        }
-    }
-
     @Override
     public String toString() {
-        return "Dono{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", email='" + email + '\'' +
-                ", endereco=" + endereco +
+        return "Dono { " +
+                "ID Dono = " + idDono +
+                ", Nome Dono = '" + nomeDono + '\'' +
+                ", Cpf = '" + cpf + '\'' +
+                ", Email = '" + email + '\'' +
+                ", " + endereco +
                 '}';
     }
 }

@@ -1,33 +1,25 @@
-package br.com.ada.petshop.modelo;
+package modelo;
 
 public class Endereco {
 
-    private int id;
-
+    private int idEnd;
     private String rua;
     private String numero;
     private String cep;
     private String bairro;
     private String estado;
 
-    public Endereco(){}
-
-    public Endereco(String rua, String numero, String cep, String bairro, String estado) {
-        this.rua = rua;
-        this.numero = numero;
-        this.cep = cep;
-        this.bairro = bairro;
-        this.estado = estado;
+    public Endereco() {
     }
 
-    public void setId(int id) {
-        if (this.id == 0){
-            this.id = id;
+    public int getIdEnd() {
+        return idEnd;
+    }
+
+    public void setIdEnd(int idEnd) {
+        if (this.idEnd == 0) {
+            this.idEnd = idEnd;
         }
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getRua() {
@@ -72,13 +64,13 @@ public class Endereco {
 
     @Override
     public String toString() {
-        return "Endereco{" +
-                "id=" + id +
-                ", rua='" + rua + '\'' +
-                ", numero='" + numero + '\'' +
-                ", cep='" + cep + '\'' +
-                ", bairro='" + bairro + '\'' +
-                ", estado='" + estado + '\'' +
+        return "Endereco { " +
+                "ID End= " + idEnd +
+                ", Rua = '" + rua + '\'' +
+                ", Numero = '" + numero + '\'' +
+                ", Cep = '" + cep + '\'' +
+                ", Bairro = '" + bairro + '\'' +
+                ", Estado = '" + estado + '\'' +
                 '}';
     }
 }

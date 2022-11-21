@@ -1,49 +1,29 @@
-package br.com.ada.petshop.businessobject;
+package repository;
 
-import br.com.ada.petshop.modelo.Cachorro;
-
+import modelo.Cachorro;
 import java.util.Objects;
 
 public class CachorroRepository {
-
-    // count para controlar a posição dos cachorros cadastrados
+    private static Cachorro[] cachorrosCadastrados = new Cachorro[2];
     private static int count = 0;
-    // array estatico, só havera esse array na memoria, ele será compartilhado entre os objetos
-    private static Cachorro[] cachorrosCadastrados = new Cachorro[100];
-
-    // contador estatico para atribuir os ids...
     private static int sequence = 1;
 
-    public void cadastra(Cachorro cachorro){
-        setId(cachorro);
-        redimensionaArray();
-
-        if (Objects.nonNull(cachorro) && Objects.nonNull(cachorro.getDono())) {
-            cachorrosCadastrados[count] = cachorro;
-            count++;
-        } else {
-            System.err.println("Cachorro null ou sem Dono!");
-        }
-    }
-
-    private void setId(Cachorro cachorro) {
-        cachorro.setId(sequence);
-        cachorro.getDono().setId(sequence);
-        cachorro.getDono().getEndereco();
-        cachorro.getDono().getEndereco().setId(sequence);
+    private void setId (Cachorro cachorro) {
+        cachorro.setIdDog(sequence);
+        cachorro.getDono().setIdDono(sequence);
+        cachorro.getDono().getEndereco().setIdEnd(sequence);
         sequence ++;
     }
 
-    private void redimensionaArray() {
-        // verifica se tem posicao livre
+    private void redimensionarArray() {
         boolean temPosicaoLivre = false;
+
         for (int i = 0; i < cachorrosCadastrados.length; i++) {
             if (Objects.isNull(cachorrosCadastrados[i])){
                 temPosicaoLivre = true;
             }
         }
 
-        // se não tem redimenciona o array
         if (! temPosicaoLivre){
             Cachorro[] cachorrosCadastrados2 = new Cachorro[cachorrosCadastrados.length + 1];
             for (int i = 0; i < cachorrosCadastrados.length; i++) {
@@ -53,9 +33,22 @@ public class CachorroRepository {
         }
     }
 
-    public void imprimeCachorrosCadastrados(){
-        System.out.println("_____________DOGS CADASTRADOS:_____________");
+    public void cadastrar (Cachorro cachorro){
+        setId(cachorro);
+        redimensionarArray();
+
+        if (Objects.nonNull(cachorro)) {
+            cachorrosCadastrados[count] = cachorro;
+            count++;
+        } else {
+            System.err.println("Cachorro sem Nome nÃ£o pode ser cadastrado.");
+        }
+    }
+
+    public void printCachorrosCadastrados(){
+        System.out.println("_____________ CACHORROS CADASTRADOS _____________");
         boolean existeCaoCadastrado = false;
+
         for (Cachorro cachorro: cachorrosCadastrados) {
             if (Objects.nonNull(cachorro)){
                 existeCaoCadastrado = true;
@@ -64,12 +57,12 @@ public class CachorroRepository {
         }
 
         if (!existeCaoCadastrado){
-            System.out.println("_____________ZERO CAES CADASTRADOS_____________");
+            System.out.println("_____________ NÃƒO HÃ CACHORROS CADASTRADOS _____________");
         }
     }
 
-    public void limpaCadastro(){
-        System.out.println("_____________LIMPANDO O CADASTRO______________");
+    public void limparCadastro(){
+        System.out.println("_____________ LIMPAR A LISTA DE CACHORROS CADASTRADOS _____________");
         this.cachorrosCadastrados = new Cachorro[2];
         this.count = 0;
     }

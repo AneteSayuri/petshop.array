@@ -6,7 +6,7 @@ import modelo.Dono;
 import modelo.Endereco;
 import repository.CachorroRepository;
 
-public class TestPetShop {
+public class TestePetShop {
 
     public static void main(String[] args){
 
@@ -16,13 +16,11 @@ public class TestPetShop {
         endereco1.setBairro("Das Laranjas");
         endereco1.setEstado("Sao Paulo");
 
-        Dono dono1 = new Dono("Caterine");
-        dono1.setEndereco(endereco1);
+        Dono dono1 = new Dono("Caterine", endereco1);
 
-        Cachorro cachorro1 = new Cachorro("Cacau");
+        Cachorro cachorro1 = new Cachorro("Cacau", dono1);
         cachorro1.setRaca("Vira lata caramelo");
         cachorro1.setIdade(1);
-        cachorro1.setDono(dono1);
 
         Endereco endereco2 = new Endereco();
         endereco2.setRua("Rua dos Limoes");
@@ -30,14 +28,12 @@ public class TestPetShop {
         endereco2.setBairro("Das Limoes");
         endereco2.setEstado("Sao Paulo");
 
-        Dono dono2 = new Dono("Maria");
-        dono2.setEndereco(endereco2);
+        Dono dono2 = new Dono("Maria", endereco2);
 
-        Cachorro cachorro2 = new Cachorro("Eddie");
+        Cachorro cachorro2 = new Cachorro("Eddie", dono2);
         cachorro2.setRaca("Caramelo");
         cachorro2.setIdade(15);
         cachorro2.setEstaDoente(true);
-        cachorro2.setDono(dono2);
 
         Endereco endereco3 = new Endereco();
         endereco3.setRua("Rua das Mexericas");
@@ -45,20 +41,17 @@ public class TestPetShop {
         endereco3.setBairro("Das Mexericas");
         endereco3.setEstado("Sao Paulo");
 
-        Dono dono3 = new Dono("Paula");
-        dono3.setEndereco(endereco3);
+        Dono dono3 = new Dono("Paula", endereco3);
 
-        Cachorro cachorro3 = new Cachorro("Bob");
+        Cachorro cachorro3 = new Cachorro("Bob", dono3);
         cachorro3.setRaca("Pastor Alemao");
         cachorro3.setIdade(10);
         cachorro3.setEstaDoente(true);
-        cachorro3.setDono(dono3);
 
-        Cachorro cachorro4 = new Cachorro("Toro");
+        Cachorro cachorro4 = new Cachorro("Toro", dono3);
         cachorro4.setRaca("Rottweiler");
         cachorro4.setIdade(10);
         cachorro4.setEstaDoente(true);
-        cachorro4.setDono(dono3);
 
         CachorroRepository repository1 = new CachorroRepository();
         repository1.cadastrar(cachorro1);
