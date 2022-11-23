@@ -68,5 +68,6 @@ public class TestePetShop {
 //        internacoes.internar(cachorro4);
 
         internacoes.mostrarCachorrosInternados();
+
     }
 }

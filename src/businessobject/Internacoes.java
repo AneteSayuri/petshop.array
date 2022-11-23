@@ -4,7 +4,6 @@ import modelo.Cachorro;
 import java.util.Objects;
 
 public class Internacoes {
-
     private Cachorro[] cachorrosInternados = new Cachorro[3];
 
     public void internar(Cachorro cachorro){
