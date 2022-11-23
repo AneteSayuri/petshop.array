@@ -86,4 +86,5 @@ public class TesteDinamicoPetShop {
         cachorroRepository.cadastrar(cachorro);
         System.out.println("CADASTRO REALIZADO COM SUCESSO! ACESSE A OPÇÃO 2 PARA CONSULTAR.");
     }
+
 }
