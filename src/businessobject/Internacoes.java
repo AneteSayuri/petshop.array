@@ -6,6 +6,7 @@ import java.util.Objects;
 public class Internacoes {
     private Cachorro[] cachorrosInternados = new Cachorro[3];
 
+
     public void internar(Cachorro cachorro){
         if (Objects.nonNull(cachorrosInternados[cachorrosInternados.length-1])){
             System.out.println("\nNão há mais vagas para internação." +

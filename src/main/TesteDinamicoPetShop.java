@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class TesteDinamicoPetShop {
     private static final CachorroRepository cachorroRepository = new CachorroRepository();
+
     public static void main(String[] args) {
         final int SAIR_DO_SISTEMA = 4;
         int opcaoSelecionada = 0;
